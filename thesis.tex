@@ -28,6 +28,7 @@
 %\usepackage[acronym]{glossaries}
 \usepackage[acronym,nomain,nonumberlist]{glossaries}
 \usepackage{acronym}
+\usepackage[font=bf]{caption}
 
 \input{abbreviations.tex} %glossary terms, make glossary
 
@@ -75,7 +76,7 @@
 %\phantomsection
 \clearpage
 \pagenumbering{roman}
-\setcounter{page}{\value{totalpages}}
+\setcounter{page}{3}
 \addcontentsline{toc}{chapter}{Dedication}
 \input{Dedication.tex}
 
@@ -111,13 +112,15 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
-%\newpage
-%\phantomsection
-%\addcontentsline{toc}{chapter}{List of Tables}
-%\listoftables
-%\phantomsection
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Abbreviations}
 %\printglossary[type=\acronymtype, title=List of Abbreviations, toctitle=List of Abbreviations]
-%\addcontentsline{toc}{chapter}{List of Abbreviations}
+\clearpage\begingroup\let\newpage\relax\printglossary[title=List of Abbreviations]\endgroup
 \end{singlespace}
 %%%%%%%
 %	            %
@@ -129,7 +132,8 @@
 
 
 % reset page numbering for rest of document 
-%\clearpage
+\newpage
+%\setcounter{page}{1} 
 
 
 % Adjust chapter title formatting
@@ -151,7 +155,6 @@
 % Chapter 1
 %%%%%%%%%%%%%%%%
 \pagenumbering{arabic}
-\setcounter{page}{1} 
 \input{chapter1.tex}
 
 %%%%%%%%%%%%%%%%
