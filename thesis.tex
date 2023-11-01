@@ -13,7 +13,7 @@
 \usepackage[normalem]{ulem}  %for underlined section titles
 \usepackage{textcomp} % for text symbols such as copyright etc. 
 \usepackage{indentfirst} % To indent the first line of every paragraph
-\usepackage{booktabs,array,arydshln} %for better table formatting. 
+\usepackage{array,arydshln} %for better table formatting. 
 \usepackage{amsmath} %for formula formatting
 \usepackage[T1]{fontenc} % improved font encoding
 \usepackage[utf8]{inputenc} % for better handling of non-ASCII characters
@@ -30,7 +30,7 @@
 \usepackage{acronym}
 \usepackage[font=bf]{caption}
 
-\input{abbreviations.tex} %glossary terms, make glossary
+\input{Abbreviations.tex} %glossary terms, make glossary
 
 % Bibliography
 %Add your bibliography file here
@@ -58,11 +58,11 @@
 % Start of Dissertation Document
 
 \begin{document}
-\doublespacing  %set line spacing to double by default through out the document. This can be overwritten when necessary
+\doublespacing  %set line spacing to double by default throughout the document. This can be overwritten when necessary
 
 % Title Page (No page number)
 \pagenumbering{gobble}
-\input{titlePage.tex}
+\input{TitlePage.tex}
 
 % Copyright  Page (No page number)
 \pagenumbering{gobble}
@@ -83,7 +83,7 @@
 % Acknowledgments
 \phantomsection
 \addcontentsline{toc}{chapter}{Acknowledgments}
-\input{acknowledgements.tex}
+\input{Acknowledgements.tex}
 
 
 % Table of Contents
@@ -152,9 +152,15 @@
 %\titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{#1}
 
 %%%%%%%%%%%%%%%%
-% Chapter 1
+% LaTeX tutorial chapter.
 %%%%%%%%%%%%%%%%
 \pagenumbering{arabic}
+\input{tutorial.tex} % Comment out this line to hide the tutorial
+
+%%%%%%%%%%%%%%%%
+% Chapter 1
+%%%%%%%%%%%%%%%%
+
 \input{chapter1.tex}
 
 %%%%%%%%%%%%%%%%
@@ -169,24 +175,12 @@
 
 \input{chapter3.tex}
 
+
 %%%%%%%%%%%%%%%%
 % Chapter 4
 %%%%%%%%%%%%%%%%
 
 \input{chapter4.tex}
-
-
-
-%%%%%%%%%%%%%%%%
-% Conclusion
-%%%%%%%%%%%%%%%%
-
-
-\clearpage
-\phantomsection
-\addcontentsline{toc}{chapter}{Conclusion or Epilogue}
-\input{Conclusion.tex}
-
 
 %%%%%%%%%%%%%%%%
 % References
