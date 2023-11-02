@@ -51,30 +51,30 @@ Figures and tables are important ways of visualizing data and conveying informat
 
 % This is a figure. Copy and paste this block of code for each figure. Change the width, image file path, title, and caption as needed. 
 \begin{figure}
-	\includegraphics[width=\textwidth]{figures/exampleFigure.png} % Adjust width and file path as needed.
-	\caption[Figure title for the Table of Contents]{ 
-    Figure title for the main text. % By default, this should be identical to the figure title used in the Table of Contents.
-    \textmd{Type a longer subtitle or caption here, optionally, which will appear unbolded in the main text.}
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{figures/SquirrelData.png} % Adjust width and file path as needed.
+	\caption[Figure title for the List of Figures]{ 
+    Figure title for the main text. % By default, this should be identical to the figure title used in the List of Figures.
+    \textmd{Type a longer subtitle or caption here, optionally, which will appear unbolded in the main text. This figure, sourced from \cite{squirreldata}, shows the geographical distribution of squirrels by fur color from the 2018 Central Park squirrel census.}
     }
-	\label{fig:figurelabel} % Refer to this figure in the main text by typing \ref{figurelabel}. Be sure to give each figure a unique and sensible label.
+    \label{fig:figurelabel} % Refer to this figure in the main text by typing \ref{figurelabel}. Be sure to give each figure a unique and sensible label.
+    \end{center}
 \end{figure}
 
-You should try to include figures close to where they are discussed in the text. You can refer to any figure, such as Figure \ref{fig:figurelabel}, in the text. Note that if you switch the order that figures are included in your \LaTeX code, the references in the text will automatically have their numbers updated, saving you a headache! You may wish to organize your image files in sub-folders. To do this, you can create sub-folders (for example, by chapter) within the ``figures'' folder and adjust the file path accordingly when using the \url{\includegraphics} command.
+You should try to include figures close to where they are discussed in the text. You can refer to any figure, such as Figure \ref{fig:figurelabel}, in the text. Note that if you switch the order in which figures are included in your \LaTeX code, the references in the text will automatically have their numbers updated. You may wish to organize your image files in sub-folders. To do this, you can create sub-folders (for example, by chapter) within the ``figures'' folder and adjust the file path accordingly when using the \url{\includegraphics} command.
+
+Any figures you define will automatically be added to the List of Figures, and if their numbers or page locations change, this will be automatically updated when the file is compiled.
+
 
 
 \subsection{Tables}
 
-Tables are another important format for conveying both quantitative and qualitative information. First, begin the table environment using \url{\ begin{table} ... \ end{table}}. You can then define the captions for the Table of Contents and the main text in the same way as was done for figures. To begin to input the table, you must create a second environment called \url{tabular}. Immediately after the \url{\ begin{tabular}} command, you will define the shape of the table and the text alignment within the cells. In the example table shown, \url{ccc} specifies three columns with centered text and no vertical lines dividing them. To align the text left or right in a given column, simply type \url{l} or \url{r} instead of \url{c}. To place a vertical line between two columns, or on the edge of a column, use the ``|'' character in the appropriate location. For example, a table with a left- and a right-aligned column with borders and dividing lines would be \url{|l|r|}. 
-
-You can then start filling in the contents of your table. The \url{&} character separates columns, and a double backslash indicates moving on to the line below. Typing \url{\ hline} will generate a horizontal line in your table. You can include equations or math characters in tables using \url{$ ... $}. You can further customize tables by merging columns or cells arbitrarily using the \url{\ multicolumn} command. If you are designing a complicated table, there are also many online tools that allow you to sketch out a table and generate the corresponding \LaTeX code!
-
-
 % This is a table
 % Adapt the number of figures and columns as needed.
 \begin{table}
-\caption[Table title for the Table of Contents]{ 
-    Table title for the main text. % By default, this should be identical to the figure title used in the Table of Contents.
-    \textmd{Type a longer subtitle or caption here, optionally, which appears unbolded in the main text.}
+\caption[Table title for the List of Tables]{ 
+    Table title for the main text. % By default, this should be identical to the table title used in the List of Tables.
+    \textmd{Type a longer subtitle or caption here, optionally, which appears unbolded in the main text. This table shows some common single-variable functions and their derivatives.}
     }\begin{center}
 \begin{tabular}{ccc}
 Function & Form & $x$-derivative \\
@@ -87,6 +87,9 @@ Quadratic & $ax^2 + bx + c$ & $2ax + b$  \\
 \end{center}
 \end{table}
 
+Tables are another important format for conveying both quantitative and qualitative information. First, begin the table environment using \url{\ begin{table} ... \ end{table}}. You can then define the titles for the List of Tables and the main text in the same way as was done for figures. To begin to input the table, you must create a second environment called \url{tabular}. Immediately after the \url{\ begin{tabular}} command, you will define the shape of the table and the text alignment within the cells. In the example table shown, \url{ {ccc} } specifies three columns with centered text and no vertical lines dividing them. To align the text left or right in a given column, simply type \url{l} or \url{r} instead of \url{c}. To place a vertical line between two columns, or on the edge of a column, use the ``|'' character in the appropriate location. For example, a table with a left- and a right-aligned column with borders and dividing lines would be defined by \url{ {|l|r|} }. 
+
+You can then start filling in the contents of your table. The \url{&} character separates columns, and a double backslash indicates moving on to the line below. Typing \url{\ hline} will generate a horizontal line in your table. You can include equations or math characters in tables using \url{$ ... $}. You can further customize tables by merging columns or cells arbitrarily using the \url{\ multicolumn} command. If you are designing a complicated table, there are also many online tools that allow you to sketch out a table and generate the corresponding \LaTeX code! As discussed in the following section, you can refer to tables, such as Table \ref{tab:tablelabel}, in the main text using the \url{\ ref{}} command.
 
 \section{Labels}
 
@@ -115,3 +118,22 @@ Since \LaTeX is a compiled typesetting language, it doesn't do some things that 
 
 You may quickly find that in writing your dissertation, you would like to use a character that is also used in the \LaTeX coding language. For example, the percent sign % will begin a comment
 and the ampersand symbol lets you align text in equations. If you would like to use these, or other, special characters in your text, simply use a backslash, like so: \% \&. 
+
+\section{Useful Resources}
+
+\begin{itemize}
+    \item \href{https://www.overleaf.com/learn}{Overleaf Documentation}
+    \begin{itemize}
+        \item \href{https://www.overleaf.com/learn/how-to}{How-To Guides}
+        \item \href{https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex}{BibTeX}
+    \end{itemize}
+    \item \href{https://tex.stackexchange.com/}{\LaTeX Stack Exchange}
+    \item \href{https://en.wikibooks.org/wiki/LaTeX}{\LaTeX Wiki}
+    \begin{itemize}
+        \item \href{https://en.wikibooks.org/wiki/LaTeX/Chemical_Graphics}{Chemical Diagrams}
+        \item \href{https://en.wikibooks.org/wiki/LaTeX/Special_Characters}{Special Characters}
+        \item \href{https://en.wikibooks.org/wiki/LaTeX/Mathematics}{Math and Equation Notation}
+    \end{itemize}
+\end{itemize}
+
+As always, you can contact Claire Warner (me!) in the Rockefeller University's Markus Library at \url{cwarner@rockefeller.edu} if you are having any trouble with this template!

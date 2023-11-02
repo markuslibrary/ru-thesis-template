@@ -1,42 +1,42 @@
 % Document type, global settings, and packages
 
-\documentclass[12pt, openany]{report}   %12 point font for Times New Roman
-\usepackage{graphicx}  %for images and plots
-\usepackage[letterpaper, left=1in, right=1in, top=1in, bottom=1in]{geometry}
-\usepackage{setspace}  %use this package to set linespacing as desired
-\usepackage{times}  %set Times New Roman as the font
-\usepackage[explicit]{titlesec}  %title control and formatting
-\usepackage[titles]{tocloft}  %table of contents control and formatting
-\usepackage[backend=bibtex, sorting=none, bibstyle=ieee]{biblatex}  %reference manager
-\usepackage{appendix}  %for appendices
-\usepackage{rotating}  %for rotated, landscape images
-\usepackage[normalem]{ulem}  %for underlined section titles
-\usepackage{textcomp} % for text symbols such as copyright etc. 
-\usepackage{indentfirst} % To indent the first line of every paragraph
-\usepackage{array,arydshln} %for better table formatting. 
-\usepackage{amsmath} %for formula formatting
-\usepackage[T1]{fontenc} % improved font encoding
-\usepackage[utf8]{inputenc} % for better handling of non-ASCII characters
-%\usepackage{newtxtext} % font choice
-\usepackage{newtxmath} 
-%\usepackage{lmodern} % font choice 
-%\usepackage[bookmarks=true, hidelinks]{hyperref}
-\usepackage[hidelinks]{hyperref}
-\usepackage{datetime}
-%\usepackage{lastpage}  % Add the lastpage package
-\usepackage{refcount}
-%\usepackage[acronym]{glossaries}
-\usepackage[acronym,nomain,nonumberlist]{glossaries}
-\usepackage{acronym}
-\usepackage[font=bf]{caption}
+\documentclass[12pt]{report}                                                    % 12 point font for Times New Roman
+\usepackage{graphicx}                                                           % For images and plots
+\usepackage[letterpaper, left=1in, right=1in, top=1in, bottom=1in]{geometry}    % Set margins with geometry package
+\usepackage{setspace}                                                           % Set line spacing as desired
+\usepackage{times}                                                              % Set Times New Roman as the font
+\usepackage[explicit]{titlesec}                                                 % Title formatting
+\usepackage[titles]{tocloft}                                                    % Table of Contents formatting
+\usepackage[backend=bibtex, sorting=none, bibstyle=ieee]{biblatex}              % References, bibliography style, BibTeX
+\usepackage{appendix}                                                           % Appendices
+\usepackage{rotating}                                                           % Allows you to include rotated or landscape images
+\usepackage[normalem]{ulem}                                                     % For underlined section titles, if desired
+\usepackage{textcomp}                                                           % Text symbols 
+\usepackage{indentfirst}                                                        % Indent the first line of every paragraph
+\usepackage{array,arydshln}                                                     % Table formatting. 
+\usepackage{amsmath}                                                            % Equation and formula formatting
+\usepackage{xfrac}                                                              % Enables diagonal fractions
+\usepackage[T1]{fontenc}                                                        % Improves font encoding
+\usepackage[utf8]{inputenc}                                                     % Better handling of non-ASCII characters
+%\usepackage{newtxtext}                                                         % Font choice
+\usepackage{newtxmath}                                                          % Equation font formatting
+%\usepackage{lmodern}                                                           % Font choice 
+%\usepackage[bookmarks=true, hidelinks]{hyperref}                               % Alternate hyperlink options
+\usepackage[hidelinks]{hyperref}                                                % Hide hyperlinks
+\usepackage{datetime}                                                           % Get current date
+%\usepackage{lastpage}                                                          % Add the lastpage package
+\usepackage[acronym,nomain,nonumberlist]{glossaries}                            % Package for List of Abbreviations
+\usepackage{acronym}                                                            % Acronyms for List of Abbreviations
+\usepackage[font=bf]{caption}                                                   % Bold figure and table captions
 
-\input{Abbreviations.tex} %glossary terms, make glossary
+% List of Abbreviations / Glossary
+\input{Abbreviations.tex}                                                       % Glossary terms, make glossary
 
 % Bibliography
-%Add your bibliography file here
+% Add your bibliography file here
 \bibliography{references}
 
-% prevent certain fields in references from printing in bibliography
+% Prevent certain fields in references from printing in the bibliography
 \AtEveryBibitem{\clearfield{issn}}
 \AtEveryBibitem{\clearlist{issn}}
 
@@ -58,47 +58,46 @@
 % Start of Dissertation Document
 
 \begin{document}
-\doublespacing  %set line spacing to double by default throughout the document. This can be overwritten when necessary
+\doublespacing                                                                  %set line spacing to double by default throughout the document. This can be overwritten when necessary
 
 % Title Page (No page number)
-\pagenumbering{gobble}
-\input{TitlePage.tex}
+\pagenumbering{gobble}                                                          % Remove page number on Title Page
+\input{TitlePage.tex}                                                           % Add Title Page
 
 % Copyright  Page (No page number)
-\pagenumbering{gobble}
-\input{CopyrightPage.tex}
+\pagenumbering{gobble}                                                          % Remove page number on Copyright Page
+\input{CopyrightPage.tex}                                                       % Add Copyright Page
 
 % Abstract (No page number)
-\pagenumbering{gobble}
-\input{Abstract.tex}
+\pagenumbering{gobble}                                                          % Remove page number(s) on Abstract
+\input{Abstract.tex}                                                            % Add Abstract
 
 % Dedication
-%\phantomsection
-\clearpage
-\pagenumbering{roman}
-\setcounter{page}{3}
-\addcontentsline{toc}{chapter}{Dedication}
-\input{Dedication.tex}
+\phantomsection                                                                 % Hyperlink in Table of Contents
+\clearpage                                                                      % Start new page
+\pagenumbering{roman}                                                           % Lower-case roman numeral page numbers
+\setcounter{page}{3}                                                            % Set page counter at 3 (iii)
+\addcontentsline{toc}{chapter}{Dedication}                                      % Add Table of Contents line for Dedication
+\input{Dedication.tex}                                                          % Add Dedication
 
 % Acknowledgments
-\phantomsection
-\addcontentsline{toc}{chapter}{Acknowledgments}
-\input{Acknowledgements.tex}
-
+\phantomsection                                                                 % Hyperlink in Table of Contents
+\addcontentsline{toc}{chapter}{Acknowledgments}                                 % Add Table of Contents line for Acknowledgements
+\input{Acknowledgements.tex}                                                    % Add Acknowledgements
 
 % Table of Contents
 %\currentpdfbookmark{Table of Contents}{TOC}
 % Format for Table of Contents
-\renewcommand{\cftchapdotsep}{\cftdotsep}  %add dot separators
-\renewcommand{\cftchapfont}{\normalfont}  %set title font weight that shows up on TOC
-\renewcommand{\cftchappagefont}{}  %set page number font-weight
-\renewcommand{\cftchappresnum}{Chapter }
-\renewcommand{\cftchapaftersnum}{:}
-\renewcommand{\cftchapnumwidth}{6em}
-\renewcommand{\cftchapafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
-\renewcommand{\cftsecafterpnum}{\vskip\baselineskip}  %set correct spacing for entries in single space environment
-\renewcommand{\cftsubsecafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
-\renewcommand{\cftsubsubsecafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
+\renewcommand{\cftchapdotsep}{\cftdotsep}                                       % Add dot separators
+\renewcommand{\cftchapfont}{\normalfont}                                        % Set title font weight that shows up on TOC
+\renewcommand{\cftchappagefont}{}                                               % Set page number font-weight
+\renewcommand{\cftchappresnum}{Chapter }                                        % Table of Contents Formatting
+\renewcommand{\cftchapaftersnum}{:}                                             % More Table of Contents Formatting
+\renewcommand{\cftchapnumwidth}{6em}                                            % Even more Table of Contents Formatting
+\renewcommand{\cftchapafterpnum}{\vskip\baselineskip}                           % Set correct spacing for entries in single space environment
+\renewcommand{\cftsecafterpnum}{\vskip\baselineskip}                            % Set correct spacing for entries in single space environment
+\renewcommand{\cftsubsecafterpnum}{\vskip\baselineskip}                         % Set correct spacing for entries in single space environment
+\renewcommand{\cftsubsubsecafterpnum}{\vskip\baselineskip}                      % Set correct spacing for entries in single space environment
 
 %format title font size and position (this also applies to list of figures and list of tables)
 \titleformat{\chapter}[display]
@@ -116,22 +115,19 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
-\newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Abbreviations}
-%\printglossary[type=\acronymtype, title=List of Abbreviations, toctitle=List of Abbreviations]
-\clearpage\begingroup\let\newpage\relax\printglossary[title=List of Abbreviations]\endgroup
+\newpage % Comment out this line if you DO NOT want a List of Abbreviations
+\phantomsection % Comment out this line if you DO NOT want a List of Abbreviations
+\addcontentsline{toc}{chapter}{List of Abbreviations} % Comment out this line if you DO NOT want a List of Abbreviations
+\clearpage\begingroup\let\newpage\relax\printglossary[title=List of Abbreviations]\endgroup % Comment out this line if you DO NOT want a List of Abbreviations
 \end{singlespace}
-%%%%%%%
-%	            %
-% Chapters   %
-%                   %
+%%%%%%%        
+% Chapters       
 %%%%%%%
 
 % General formatting for chapters, appendix, etc. 
 
 
-% reset page numbering for rest of document 
+% reset page numbering for the rest of the document 
 \newpage
 %\setcounter{page}{1} 
 
@@ -192,10 +188,10 @@
 \titlespacing*{\chapter}
   {0pt}{0pt}{30pt}
 
-\begin{singlespace}  % use single-line spacing for multi-line text within a single reference
-	\setlength\bibitemsep{\baselineskip}  %manually set separataion betwen items in bibliography to double space
-	\addcontentsline{toc}{chapter}{References}  %add References section to Table of Contents
-	\printbibliography[title={References}]
+\begin{singlespace}  % Use single-line spacing for multi-line text within a single reference
+	\setlength\bibitemsep{\baselineskip}  % Set separation between items in the bibliography to double space
+	\addcontentsline{toc}{chapter}{References}  % Add References section to Table of Contents
+	\printbibliography[title={References}] % Generate and print the bibliography/references
 \end{singlespace}
 
 
@@ -204,11 +200,11 @@
 % Appendices
 %%%%%%%%%%%%%%%%
 
-%Readjust Title format for Appendicies
+% Readjust Title format for Appendices
 \titleformat{\chapter}[display]
 {\normalfont\bfseries\filcenter}{}{0pt}{\large\chaptertitlename\ \large\thechapter : \large\bfseries\filcenter{#1}}  
 \titlespacing*{\chapter}
-  {0pt}{0pt}{30pt}	%controls vertical margins on title
+  {0pt}{0pt}{30pt} % Vertical margins on title
   
 % Adjust section title formatting
 \titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{#1}
@@ -216,6 +212,6 @@
 % Adjust subsection title formatting
 \titleformat{\subsection}{\normalfont}{\thesubsection}{0em}{\hspace{1em}#1}
 
-\input{appendix.tex}
+\input{Appendix.tex}
 
 \end{document} 
