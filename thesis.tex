@@ -30,7 +30,7 @@
 \usepackage[font=bf]{caption}                                                   % Bold figure and table captions
 
 % List of Abbreviations / Glossary
-\input{Abbreviations.tex}                                                       % Glossary terms, make glossary
+\input{abbreviations.tex}                                                       % Glossary terms, make glossary
 
 % Bibliography
 % Add your bibliography file here
@@ -62,15 +62,15 @@
 
 % Title Page (No page number)
 \pagenumbering{gobble}                                                          % Remove page number on Title Page
-\input{TitlePage.tex}                                                           % Add Title Page
+\input{titlepage.tex}                                                           % Add Title Page
 
 % Copyright  Page (No page number)
 \pagenumbering{gobble}                                                          % Remove page number on Copyright Page
-\input{CopyrightPage.tex}                                                       % Add Copyright Page
+\input{copyright.tex}                                                           % Add Copyright Page
 
 % Abstract (No page number)
 \pagenumbering{gobble}                                                          % Remove page number(s) on Abstract
-\input{Abstract.tex}                                                            % Add Abstract
+\input{abstract.tex}                                                            % Add Abstract
 
 % Dedication
 \phantomsection                                                                 % Hyperlink in Table of Contents
@@ -78,12 +78,12 @@
 \pagenumbering{roman}                                                           % Lower-case roman numeral page numbers
 \setcounter{page}{3}                                                            % Set page counter at 3 (iii)
 \addcontentsline{toc}{chapter}{Dedication}                                      % Add Table of Contents line for Dedication
-\input{Dedication.tex}                                                          % Add Dedication
+\input{dedication.tex}                                                          % Add Dedication
 
 % Acknowledgments
 \phantomsection                                                                 % Hyperlink in Table of Contents
 \addcontentsline{toc}{chapter}{Acknowledgments}                                 % Add Table of Contents line for Acknowledgements
-\input{Acknowledgements.tex}                                                    % Add Acknowledgements
+\input{acknowledgements.tex}                                                    % Add Acknowledgements
 
 % Table of Contents
 %\currentpdfbookmark{Table of Contents}{TOC}
@@ -105,53 +105,45 @@
 
 \renewcommand\contentsname{Table of Contents}
 \begin{singlespace}
-\tableofcontents
-\setlength{\cftparskip}{\baselineskip}
-\newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Figures}
-\listoffigures
-\newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Tables}
-\listoftables
-\newpage % Comment out this line if you DO NOT want a List of Abbreviations
-\phantomsection % Comment out this line if you DO NOT want a List of Abbreviations
-\addcontentsline{toc}{chapter}{List of Abbreviations} % Comment out this line if you DO NOT want a List of Abbreviations
-\clearpage\begingroup\let\newpage\relax\printglossary[title=List of Abbreviations]\endgroup % Comment out this line if you DO NOT want a List of Abbreviations
+\tableofcontents                                                                % Make Table of Contents
+\setlength{\cftparskip}{\baselineskip}                                          % Table of Contents formatting
+\newpage                                                                        % Start new page
+\phantomsection                                                                 % Hyperlink in Table of Contents
+\addcontentsline{toc}{chapter}{List of Figures}                                 % Add List of Figures to Table of Contents
+\listoffigures                                                                  % Make List of Figures
+\newpage                                                                        % Start New Page
+\phantomsection                                                                 % Hyperlink in Table of Contents
+\addcontentsline{toc}{chapter}{List of Tables}                                  % Add List of Tables to Table of Contents
+\listoftables                                                                   % Make List of Tables
+\newpage                                                                        % Start New page [[[Comment out this line if you DO NOT want a List of Abbreviations]]]
+\phantomsection                                                                 % Hyperlink in Table of Contents [[[Comment out this line if you DO NOT want a List of Abbreviations]]]
+\addcontentsline{toc}{chapter}{List of Abbreviations}                           % Add List of Abbreviations to Table of Contents[[[Comment out this line if you DO NOT want a List of Abbreviations]]]
+\clearpage\begingroup\let\newpage\relax\printglossary[title=List of Abbreviations]\endgroup % Make List of Abbreviations [[[Comment out this line if you DO NOT want a List of Abbreviations]]]
 \end{singlespace}
 %%%%%%%        
 % Chapters       
 %%%%%%%
-
 % General formatting for chapters, appendix, etc. 
-
-
-% reset page numbering for the rest of the document 
-\newpage
-%\setcounter{page}{1} 
-
+\newpage                                                                        % Start new page
 
 % Adjust chapter title formatting
 \titleformat{\chapter}[display]
 {\normalfont\bfseries\filcenter}{}{0pt}{\large\chaptertitlename\ \large\thechapter : \large\bfseries\filcenter{#1}}  
-\titlespacing*{\chapter}
-  {0pt}{0pt}{30pt}	%controls vertical margins on title
+\titlespacing*{\chapter}{0pt}{0pt}{30pt}	                                    % Controls vertical margins on title
   
-% Adjust section title formatting
-\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{#1}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{#1}              % Adjust section title formatting
+\titleformat{\subsection}{\normalfont}{\thesubsection}{0em}{\hspace{1em}#1}     % Adjust subsection title formatting
+\titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{#1}      % Adjust sub-subsection title formatting
 
-% Adjust subsection title formatting
-\titleformat{\subsection}{\normalfont}{\thesubsection}{0em}{\hspace{1em}#1}
-
-% Below is a subsubsection, uncomment it if you need to use it
-%\titleformat{\subsubsection}{\normalfont\itshape}{\thesubsection}{1em}{#1}
 
 %%%%%%%%%%%%%%%%
 % LaTeX tutorial chapter.
 %%%%%%%%%%%%%%%%
-\pagenumbering{arabic}
-\input{tutorial.tex} % Comment out this line to hide the tutorial
+
+% This is the beginning of the thesis body text. It should be typed into the individual Chapter .tex files, and then it will be pulled into the main thesis.tex file in the following lines. Commenting out an \input{mychapter.tex} line will exclude that chapter from the compiled document, which can be useful if compiling times are running long.
+
+\pagenumbering{arabic}                                                          % Switch to Arabic numerals, starting at 1
+\input{tutorial.tex}                                                            % Comment out this line to hide the tutorial
 
 %%%%%%%%%%%%%%%%
 % Chapter 1
@@ -181,17 +173,18 @@
 %%%%%%%%%%%%%%%%
 % References
 %%%%%%%%%%%%%%%%
-\clearpage
-\phantomsection 
+
+\newpage                                                                        % Start new page
+\phantomsection                                                                 % Add hyperlink to Table of Contents 
 \titleformat{\chapter}[display]
-{\normalfont\bfseries\filcenter}{}{0pt}{\large\bfseries\filcenter{#1}}  % Reset title format for Reference section. (It is different from Chapter titles)
+{\normalfont\bfseries\filcenter}{}{0pt}{\large\bfseries\filcenter{#1}}          % Reset title format for Reference section (it is different from Chapter titles)
 \titlespacing*{\chapter}
   {0pt}{0pt}{30pt}
 
-\begin{singlespace}  % Use single-line spacing for multi-line text within a single reference
-	\setlength\bibitemsep{\baselineskip}  % Set separation between items in the bibliography to double space
-	\addcontentsline{toc}{chapter}{References}  % Add References section to Table of Contents
-	\printbibliography[title={References}] % Generate and print the bibliography/references
+\begin{singlespace}                                                             % Use single-line spacing for multi-line text within a single reference
+	\setlength\bibitemsep{\baselineskip}                                        % Set separation between items in the bibliography to double space
+	\addcontentsline{toc}{chapter}{References}                                  % Add References section to Table of Contents
+	\printbibliography[title={References}]                                      % Generate and print the bibliography/references
 \end{singlespace}
 
 
@@ -204,14 +197,10 @@
 \titleformat{\chapter}[display]
 {\normalfont\bfseries\filcenter}{}{0pt}{\large\chaptertitlename\ \large\thechapter : \large\bfseries\filcenter{#1}}  
 \titlespacing*{\chapter}
-  {0pt}{0pt}{30pt} % Vertical margins on title
+  {0pt}{0pt}{30pt}                                                              % Vertical margins on title
   
-% Adjust section title formatting
-\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{#1}
-
-% Adjust subsection title formatting
-\titleformat{\subsection}{\normalfont}{\thesubsection}{0em}{\hspace{1em}#1}
-
-\input{Appendix.tex}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{1em}{#1}              % Adjust section title formatting
+\titleformat{\subsection}{\normalfont}{\thesubsection}{0em}{\hspace{1em}#1}     % Adjust subsection title formatting
+\input{appendix.tex}                                                            % Add Appendix. [[[Comment this line out if you do not need an Appendix.]]]
 
 \end{document} 
