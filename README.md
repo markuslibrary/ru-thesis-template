@@ -4,6 +4,8 @@ This repository contains LaTeX template for PhD theses at The Rockefeller Univer
 
 Official RU formatting guidelines can be found in "Thesis Formatting Guidelines 2023-24.pdf".
 
+**This template is in a beta testing phase. If you encounter any problems or have feedback to give, please use the contact information listed below.**
+
 ## Getting Started
 
 First, download this repository as a zip file. Make an account on Overleaf and upload the contents of the zip file as a new project. 
