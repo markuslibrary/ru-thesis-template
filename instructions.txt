@@ -14,14 +14,15 @@ To begin using this template, follow these steps:
 6. Add any appendices as needed into appendices.tex (optional - if you do not require any appendices, comment out the appropriate lines in thesis.tex)
 7. Add references in the BibTeX format to the references.bib file. Cite references using the defined keys in the abstract, main text, and appendices.
 8. Upload figures as needed to be included in the main text and appendices.
+9. Remove the tutorial chapter when no longer needed by commenting out the line "\input{tutorial.tex}" 
 
 Overleaf (preferred):
 
 Upload the zip folder to Overleaf and select thesis.tex as the file to be compiled. To reduce compile time you may include or exclude chapters from the thesis.tex file by commenting out lines. 
 
-PdfLaTeX:
+Offline:
 
-To compile the template, using your preferred TeX editor, run the following commands in sequence:
+To compile the template, using your preferred TeX editor, run the following commands in sequence using the command line:
 
 1. pdflatex
 2. bibtex
