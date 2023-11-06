@@ -1,22 +1,25 @@
-GSAS LaTeX Dissretation Template. 
+Instructions for using the Rockefeller University's Latex Dissertation Template
 
-This is a dissertation template that meets the official formatting requirements of GSAS.
+This template meets the formatting requirements of the Rockefeller University's graduate program. The full formatting requirements can be found in the Thesis Formatting Guidelines file. Feel free to modify this template to suit your needs while remaining in line with the formatting requirements.  
 
-The default and most common LaTeX packages were utilized to enable many of the features in this template.
-As such, modifications of the template are easily accomplished by leveraging the capabilities of the utilized packages.
+You may either use an online editor/compiler such as Overleaf (recommended) or compile the LaTeX code on your computer using pdflatex.
 
-However, the template is designed to require minimal modification for a standard GSAS Dissertation.
-By following these steps, the blank template can be customized to a specific individual person and thesis topic.
-Note that the percent sign "%", is the comment character for LaTeX, and any text following this symbol will
-not be read by the LaTeX compiler. Including in the template are many such comments containing
-instructions and relevant context, so be sure to read these as needed.
+To begin using this template, follow these steps:
 
-1. Open the "titlePage.tex" file, and type your Dissertation Title, and your Full Name
-2. Open the "CopyrightPage.tex" file, and type your name. 
-3. Open the "Abstract.tex", "dedication.tex", etc. to type required information. 
-4. Open the "references.bib" file, and input your citations, in BiBTeX format.
+1. Add your dissertation title, full name, and conferral date (month and year) to titlepage.tex
+2. Add your name and conferral year to copyright.tex 
+3. Add your dedication to dedication.tex and your acknowledgments to acknowledgements.tex (optional - if you do not want either of these sections, comment out the appropriate lines in thesis.tex)
+4. Add your abstract to abstract.tex
+5. Fill in the main text of your dissertation in the respective chapter#.tex files. If you need to add additional chapters, you can do so - just remember to include them in the main thesis.tex file.
+6. Add any appendices as needed into appendices.tex (optional - if you do not require any appendices, comment out the appropriate lines in thesis.tex)
+7. Add references in the BibTeX format to the references.bib file. Cite references using the defined keys in the abstract, main text, and appendices.
+8. Upload figures as needed to be included in the main text and appendices.
 
-After these steps are complete, the main content of the thesis can be entered into the various "chapter<#>.tex" files, along with any appendices in the "appendix.tex" file.
+Overleaf (preferred):
+
+Upload the zip folder to Overleaf and select thesis.tex as the file to be compiled. To reduce compile time you may include or exclude chapters from the thesis.tex file by commenting out lines. 
+
+PdfLaTeX:
 
 To compile the template, using your preferred TeX editor, run the following commands in sequence:
 
