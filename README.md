@@ -13,6 +13,7 @@ First, download this repository as a zip file. Make an account on Overleaf and u
 ## Contact
 
 Claire Warner (she/her), Data Services Specialist @ Markus Library
+
 ORCiD: [https://orcid.org/0000-0003-2928-2411](https://orcid.org/0000-0003-2928-2411)
 
 [cwarner@rockefeller.edu](mailto:cwarner@rockefeller.edu)
